@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advent Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin: 20px;
+      color: #333;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .day {
+      background: #c4e3d4;
+      border: 2px solid #86c2a7;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .day:hover {
+      background: #86c2a7;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .day.opened {
+      background: #ffd700;
+      color: #333;
+      pointer-events: none;
+    }
+
+    .message {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Advent Calendar</h1>
+  <div class="calendar">
+    <!-- 25 days -->
+    <div class="day" data-message="🎄 Day 1: Spread joy!">1</div>
+    <div class="day" data-message="❄️ Day 2: Embrace the cold with warmth!">2</div>
+    <div class="day" data-message="🎁 Day 3: Give a small gift today.">3</div>
+    <div class="day" data-message="✨ Day 4: Reflect on your blessings.">4</div>
+    <div class="day" data-message="☃️ Day 5: Build something fun!">5</div>
+    <div class="day" data-message="🌟 Day 6: Light up someone’s day!">6</div>
+    <div class="day" data-message="🍪 Day 7: Bake cookies!">7</div>
+    <div class="day" data-message="🕯️ Day 8: Light a candle for hope.">8</div>
+    <div class="day" data-message="🎶 Day 9: Sing a carol.">9</div>
+    <div class="day" data-message="🎨 Day 10: Get creative!">10</div>
+    <div class="day" data-message="🎉 Day 11: Celebrate small wins.">11</div>
+    <div class="day" data-message="📖 Day 12: Read a festive story.">12</div>
+    <div class="day" data-message="💌 Day 13: Write a heartfelt note.">13</div>
+    <div class="day" data-message="🍫 Day 14: Enjoy a sweet treat!">14</div>
+    <div class="day" data-message="🧣 Day 15: Stay cozy!">15</div>
+    <div class="day" data-message="🛍️ Day 16: Support local businesses.">16</div>
+    <div class="day" data-message="🌈 Day 17: Spread positivity.">17</div>
+    <div class="day" data-message="🎅 Day 18: Be Santa for someone.">18</div>
+    <div class="day" data-message="🎵 Day 19: Dance to a festive tune.">19</div>
+    <div class="day" data-message="🕊️ Day 20: Share peace.">20</div>
+    <div class="day" data-message="🛷 Day 21: Take time to relax.">21</div>
+    <div class="day" data-message="✨ Day 22: Make a wish.">22</div>
+    <div class="day" data-message="🌟 Day 23: Shine bright!">23</div>
+    <div class="day" data-message="🎁 Day 24: Wrap up your love.">24</div>
+    <div class="day" data-message="🎉 Day 25: Merry Christmas!">25</div>
+  </div>
+
+  <div class="message" id="messageBox"></div>
+
+  <script>
+    const days = document.querySelectorAll('.day');
+    const messageBox = document.getElementById('messageBox');
+
+    days.forEach(day => {
+      day.addEventListener('click', function () {
+        const message = this.getAttribute('data-message');
+        this.classList.add('opened');
+        messageBox.textContent = message;
+        messageBox.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
